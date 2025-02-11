@@ -1,0 +1,28 @@
+{
+  "reservations": [
+    {
+      "id": "dbdb",
+      "Name": "lakshmi",
+      "EmailID": "lakshmipriya518@gmail.com",
+      "Contact": "7358274789",
+      "Date": "2024-11-22",
+      "PersonCount": "2"
+    },
+    {
+      "id": "4756",
+      "Name": "Suganthi",
+      "EmailID": "suganthi12@gmail.com",
+      "Contact": "9962711275",
+      "Date": "2024-11-22",
+      "PersonCount": "3"
+    },
+    {
+      "id": "7034",
+      "Name": "bino",
+      "EmailID": "bino518@gmail.com",
+      "Contact": "9876543210",
+      "Date": "2024-11-29",
+      "PersonCount": "2"
+    }
+  ]
+}

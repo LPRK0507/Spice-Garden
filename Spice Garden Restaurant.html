@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        /* Base styles for all devices */
+        body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Styles for Phones (max-width: 600px) */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    header {
+        padding: 10px; /* Reduce padding for mobile */
+    }
+}
+
+/* Styles for Tablets (min-width: 601px to max-width: 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    body {
+        font-size: 16px; /* Standard size for tablets */
+    }
+    header {
+        padding: 15px; /* Adjust padding for tablets */
+    }
+}
+
+</style>
+</head>
+</head>
+<body>
+
+<!-- Header Section -->
+<header class="py-2" style="background-color: #333;">
+    <nav class="container d-flex justify-content-between align-items-center">
+        <!-- Logo and Text Aligned Closer -->
+        <div class="d-flex align-items-center">
+            <div style="width: 40px; height: 40px; overflow: hidden; border-radius: 50%; margin-left: 50px;">
+                <img src="logo.png" alt="Spice Garden Logo" style="width: 100%; height: auto; object-fit: cover;">
+            </div>
+            <h1 class="logo" style="font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif; color: #ff0000; font-size: 1rem; margin-left: 10px;">Spice Garden</h1>
+        </div>
+        <ul class="nav" style="margin-left: 0;">
+            <li class="nav-item"><a href="#home" class="nav-link" style="color: gray; padding-right: 2px;">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link" style="color: gray; padding-right: 2px;">About</a></li>
+            <li class="nav-item"><a href="#menu" class="nav-link" style="color: gray; padding-right: 2px;">Menu</a></li>
+            <li class="nav-item"><a href="order.html" class="nav-link" style="color: gray; padding-right: 2px;">Order</a></li>
+            <li class="nav-item"><a href="#stories" class="nav-link" style="color: gray; padding-right: 2px;">Stories</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link" style="color: gray; padding-right: 5px;">Contact</a></li>
+                      <li class="nav-item">
+                <a href="#reservation" class="btn" style="background-color: gold; color: black; padding: 6px 10px; border-radius: 20px;">Book a Table</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+
+<!-- Hero Section -->
+<section class="hero text-center text-light d-flex flex-column justify-content-between" style="background-image: url(https://th.bing.com/th/id/OIG4.4yvhxnlKj.hf76Cp.P22?pid=ImgGn); background-size: cover; background-position: center; height: 90vh; position: relative; padding: 20px;">
+    <!-- Text Moved to the Top -->
+    <div class="text-top" style="align-self: flex-start;">
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic; color: #ff0000; font-size: 4rem;">Spice Garden</h1>
+        <p style="font-weight: bold;">FRESH INGREDIENTS SOURCED GLOBALLY</p>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col text-center">
+            <div class="circle" style="width: 100px; height: 100px; border-radius: 50%; background-color: white; margin: 0 auto; overflow: hidden; position: relative; border: 5px solid white;">
+                <img src="food1.jpeg" alt="spring rolls" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            </div>
+            <p style="margin-top: 10px;">"Crispy Spring Rolls"</p>
+        </div>
+
+        <div class="col text-center">
+            <div class="circle" style="width: 100px; height: 100px; border-radius: 50%; background-color: white; margin: 0 auto; overflow: hidden; position: relative; border: 5px solid white;">
+                <img src="food2.jpeg" alt="fried rice" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            </div>
+            <p style="margin-top: 10px;">"Wholesome Fried Rice"</p>
+        </div>
+
+        <div class="col text-center">
+            <div class="circle" style="width: 100px; height: 100px; border-radius: 50%; background-color: white; margin: 0 auto; overflow: hidden; position: relative; border: 5px solid white;">
+                <img src="food3.jpeg" alt="sweet and sour pork" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            </div>
+            <p style="margin-top: 10px;">"Tempting Sweet and Sour Pork"</p>
+        </div>
+
+        <div class="col text-center">
+            <div class="circle" style="width: 100px; height: 100px; border-radius: 50%; background-color: white; margin: 0 auto; overflow: hidden; position: relative; border: 5px solid white;">
+                <img src="food4.jpeg" alt="wonton soup" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            </div>
+            <p style="margin-top: 10px;">"Warm Wonton Soup"</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <!-- About Section -->
+<section id="about" class="container my-2">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="Restaurant Image 1.png" class="img-fluid mb-2" alt="Restaurant Image 1"> <!-- Increased margin-bottom -->
+            <img src="Restaurant Image 2.png" class="img-fluid" alt="Restaurant Image 2">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <h2 style="font-size: 3rem; font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif; color: #ff0000; margin-top: 0.1rem;">About Spice Garden</h2>
+            <p style="font-family: Arial;font-size: 15px; margin-top: 10px;">At Spice Garden, we are more than just a restaurant; we are a culinary journey,
+                a symphony of flavors, and a celebration of culture. Our passion for authentic cuisine and dedication to exceptional dining experiences 
+                have made us a beloved destination for food enthusiasts and connoisseurs alike. With a rich heritage of flavors, 
+                our dishes are carefully crafted using time-honored recipes and the finest ingredients sourced from around the world. 
+                We invite you to embark on a gastronomic adventure with us, where every meal is a story waiting to be savored.</p>
+                
+            <p>Mon - Fri <strong>8 AM to 11 PM</strong></p>
+            <p style="color:gold; font-size: 1.7rem;">+1-978-321-4532</p>
+        </div>
+    </div>
+</section>
+
+<!-- Catering Services Section -->
+<section class="bg-light py-5 text-center">
+    <h2 style="color: #ff0000; font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif; padding-bottom: 50px; font-size: 3rem;">Catering Services</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3 text-center">
+                <!-- Cake icon -->
+                <i class="fas fa-birthday-cake fa-2x" style="color: black;"></i>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">Birthday Party</h4>
+                <p style="font-size: 0.8rem; font-family: Arial, Helvetica, sans-serif;">Make your special day even more memorable with our catering services tailored for birthday celebrations. From delicious cakes to a wide range of cuisines, we've got you covered.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <!-- Handshake icon -->
+                <i class="fas fa-handshake fa-2x" style="color: black;"></i>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">Business Meetings</h4>
+                <p style="font-size: 0.8rem; font-family: Arial, Helvetica, sans-serif;">Elevate your corporate events with our professional catering services. We provide gourmet meals and a comfortable atmosphere for successful business meetings.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <!-- Gift icon -->
+                <i class="fas fa-gift fa-2x" style="color: black;"></i>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">Wedding Party</h4>
+                <p style="font-size: 0.8rem; font-family: Arial, Helvetica, sans-serif;">Your special day deserves the finest catering. Let us create a memorable wedding feast that reflects your love story and delights your guests.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Menu Services Section -->
+<section class="hero text-center text-light d-flex flex-column justify-content-between" style="background-image: url(https://th.bing.com/th/id/OIG1.lTbcBntsiCMfOjG0sJU5?w=1792&h=1024&rs=1&pid=ImgDetMain); background-size: cover; background-position: center; height: 120vh; position: relative; padding: -10px;">
+    <div class="container my-5">
+        <h1 style="color:#ff0000; font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif; padding-bottom: 50px; font-size: 3rem;text-align: center">Our Menu Specialties</h1>
+        <div class="card mx-auto" style="max-width: 800px; background-color: #f6c76f;">
+            <div class="card-body">
+
+               <!-- Category Selector with Label -->
+<div class="d-flex justify-content-center align-items-center my-3">
+    <label for="categorySelector" class="me-2 fw-bold" style="color: black;">Filter by Category</label>
+    <select id="categorySelector" class="form-select w-50" onchange="filterMenuByCategory()">
+        <option value="">All</option>
+        <option value="Starters">Starters</option>
+        <option value="Main Course">Main Course</option>
+        <option value="Desserts">Desserts</option>
+    </select>
+</div>
+
+
+                <!-- Menu Table with Scroll -->
+                <div style="max-height: 400px; overflow-y: auto;">
+                    <table class="table table-bordered" id="menuTable" style="background-color:rgb(244, 244, 213)">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-category="Starters">
+                                <td>Dough Balls Doppio</td>
+                                <td>330</td>
+                            </tr>
+                            <tr data-category="Starters">
+                                <td>Mix Salad Bowl</td>
+                                <td>250</td>
+                            </tr>
+                            <tr data-category="Starters">
+                                <td>Garlic Bread Mozzarella</td>
+                                <td>200</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Veg Wrap</td>
+                                <td>350</td>
+                            </tr>
+                            <tr data-category="Starters">
+                                <td>Spinach and Artichoke Tortilla Crisp</td>
+                                <td>240</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Chocolate Cheesecake</td>
+                                <td>125</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Mini Vegetable Lasagna</td>
+                                <td>170</td>
+                            </tr>
+                            <tr data-category="Starters">
+                                <td>Potato Wedges</td>
+                                <td>190</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Brownie</td>
+                                <td>200</td>
+                            </tr>
+                            <tr data-category="Starters">
+                                <td>Emilgrana & Mushroom Dip</td>
+                                <td>380</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Berry Blast</td>
+                                <td>150</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Oreo Monster Shake</td>
+                                <td>280</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Classic Mojito</td>
+                                <td>250</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Water Melon Ice Tea</td>
+                                <td>200</td>
+                            </tr>
+                            <tr data-category="Desserts">
+                                <td>Diet Pepsi</td>
+                                <td>80</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Fruit Pizza</td>
+                                <td>400</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Combo of 2 Veg Pizzas</td>
+                                <td>420</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Risotto Con Funghi Veg</td>
+                                <td>550</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Penne con Peppadew</td>
+                                <td>650</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Dan Dan Noodles</td>
+                                <td>300</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Mexican Delight Pizza</td>
+                                <td>320</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Spaghetti Aglio e Olio</td>
+                                <td>680</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Pomodoro Pesto Pizza By the Slice</td>
+                                <td>800</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Cheese Burst Pizza</td>
+                                <td>700</td>
+                            </tr>
+                            <tr data-category="Main Course">
+                                <td>Fresh Veggie Special Pizza</td>
+                                <td>450</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <a href="order.html" class="nav-link btn" style="color: gray; background-color:white; color: black; padding: 6px 4px; border-radius: 20px;font-weight: bold;" >Place Order</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function filterMenuByCategory() {
+        const selectedCategory = document.getElementById('categorySelector').value;
+        const rows = document.querySelectorAll('#menuTable tbody tr');
+
+        rows.forEach(row => {
+            const category = row.getAttribute('data-category');
+            if (selectedCategory === "" || category === selectedCategory) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+</script>
+
+
+   <!-- Master Chef Section -->
+<section class="py-5 text-center" style="background-color: #343a40;">
+    <h2 style="color: #ff0000; font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif;padding-top: 10px; padding-bottom: 30px;font-size: 3rem;">Our Master Chef</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="Chef 1.png" alt="Chef 1">
+                <h5 style="color: gray; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;padding-top: 8px;font-size: 1.1rem;">Restaurant Owner</h5>
+                <p style="color: gray;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:0.4;text-align: center;margin-top: -5px;">John Doe</p>
+                <p>
+                    <a href="#" style="color: gray;margin-right: 15px;"><i class="fab fa-twitter"></i></a> 
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-facebook-f"></i></a> 
+                    <a href="#"style="color: gray;"><i class="fab fa-instagram"></i></a>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img src="Chef 2.png" alt="Chef 1">
+                <h5 style="color: gray; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;padding-top: 8px;font-size: 1.1rem;">Master Chef</h5>
+                <p style="color: gray;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:0.4;text-align: center;margin-top: -5px;">Jane Smith</p>
+                <p>
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-twitter"></i></a> 
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-facebook-f"></i></a> 
+                    <a href="#"style="color: gray;"><i class="fab fa-instagram"></i></a>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img src="Chef 3.png" alt="Chef 1">
+                <h5 style="color: gray; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;padding-top: 8px;font-size: 1.1rem;">Master Chef</h5>
+                <p style="color: gray;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:0.4;text-align: center;margin-top: -5px;">Maria Gracia</p>
+                <p>
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-twitter"></i></a> 
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-facebook-f"></i></a> 
+                    <a href="#"style="color: gray;"><i class="fab fa-instagram"></i></a>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img src="Chef 4.png" alt="Chef 1">
+                <h5 style="color: gray; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;padding-top: 8px;font-size: 1.1rem;">Chef</h5>
+                <p style="color: gray;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:0.4;text-align: center;margin-top: -5px;">Michael Johnson</p>
+                <p>
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-twitter"></i></a> 
+                    <a href="#"style="color: gray;margin-right: 15px;"><i class="fab fa-facebook-f"></i></a> 
+                    <a href="#"style="color: gray;"><i class="fab fa-instagram"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Book a Table Section -->
+<section id="reservation" class="d-flex align-items-center" style="background-image: url(https://th.bing.com/th/id/OIG3.vf9cF58jcdwbmc160fcA?w=1792&h=1024&rs=1&pid=ImgDetMain); height: 115vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table-borderless" style="width: 100%; background-color: white; padding: 20px; border-radius: 8px;">
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <h2 style="color: #ff0000; font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 3rem; margin-top: 25px;">Book a Table</h2>
+                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">Make Reservation</p>
+                        
+                        </td>
+
+                    </tr>
+<form>
+
+
+                    <tr>
+                        <td>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="bookname" placeholder="Name" style="max-width: 80%; margin-left: 40px; border-radius: 1%;">
+                                <div id="name-error" class="error"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-3">
+
+                                <input type="email" class="form-control" id="bookemail" placeholder="Email" style="max-width: 90%; border-radius: 1%; margin-right: 20px;">
+                                <div id="email-error" class="error"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="bookphone" placeholder="Phone" style="max-width: 80%; margin-left: 40px; border-radius: 1%;">
+                                <div id="phone-error" class="error"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-3">
+                                <input type="date" class="form-control" id="bookdate" style="max-width: 90%; border-radius: 1%; margin-right: 20px;">
+                                <div id="date-error" class="error"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="mb-3">
+                                <input type="time" class="form-control" id="booktime" style="max-width: 80%; margin-left: 40px; border-radius: 1%;">
+                
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-3">
+                                <select class="form-control" id="bookperson" style="max-width: 90%; border-radius: 1%; margin-right: 20px; position: relative;">
+                                    <option disabled selected>Number Of Persons</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4+</option>
+                                </select>
+                                <span style="position: absolute; right: 35px; top: 12px; pointer-events: none; font-size: 1.2rem;">&#x25BC;</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-left">
+                            <button type="submit" class="btn btn-primary" style="color: black; background-color: gold; margin-left: 40px; margin-top: -5px; margin-bottom: 30px; padding-right: 45px; padding-left: 45px; border: gold;">Make a Reservation</button>
+                        </td>
+                    </tr>
+                </form>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+  
+<!-- Link the reserve.js file -->
+<script src="./js/reserve.js"></script>
+
+
+
+ <!-- Recent Posts Section -->
+<section class="container my-5  ">
+    <h2 class="text-center mb-4" style="font-size: 2.5rem; font-family: Georgia, 'Times New Roman', Times, serif; color: #ff0000; font-style: italic;">Recent Posts</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+            <div class="d-flex justify-content-center">
+                <div class="mx-3">
+                    <img src="Blog Post 1.png" class="img-fluid" alt="Blog Post 1" style="width: 100%; height: 300px; object-fit: cover;">
+                    <p style="color: gray; font-size: 0.8rem; text-align: left; margin-top: 10px;">September 15, 2023</p>
+                    <p style="font-size: 1.5rem; text-align: left;">Exploring Flavors From Around the World</p>
+                    <a href="#" class="btn" style="background-color: gold; color: black; margin-top: 10px;float: left;">Read More</a>
+                </div>
+                <div class="mx-3">
+                    <img src="Blog Post 2.png" class="img-fluid" alt="Blog Post 2" style="width: 100%; height: 300px; object-fit: cover;">
+                    <p style="color: gray; font-size: 0.8rem; text-align: left; margin-top: 10px;">August 28, 2023</p>
+                    <p style="font-size: 1.5rem; text-align: left;">The Art of Spice: A Culinary Journey</p>
+                    <a href="#" class="btn" style="background-color: gold; color: black; margin-top: 10px;float: left;">Read More</a>
+                </div>
+                <div class="mx-3">
+                    <img src="Blog Post 3.png" class="img-fluid" alt="Blog Post 3" style="width: 100%; height: 300px; object-fit: cover;">
+                    <p style="color: gray; font-size: 0.8rem; text-align: left; margin-top: 10px;">July 10, 2023</p>
+                    <p style="font-size: 1.5rem; text-align: left;">Taste the Delicious Food in India and Europe</p>
+                    <a href="#" class="btn" style="background-color: gold; color: black; margin-top: 10px;float: left;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimony Section -->
+<section class="container my-5 text-center" style="background-color: #333; padding: 40px; border-radius: 8px;">
+    <h2 style="font-size: 2.5rem; font-family: Georgia, 'Times New Roman', Times, serif; color: #ff0000; font-style: italic; margin-bottom: 20px;">Happy Customers</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <div style="background-color: white; padding: 10px; border-radius: 8px; max-width: 100%; height: 60vh; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="Customer 1.jpg" alt="Customer 1" style="width: 80px; height: 80px; border-radius: 50%; margin-top: 10px;">
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.9rem; padding-top: 20px;">"Spice Garden is a culinary gem! The flavors in every dish are exceptional, and the ambiance is truly welcoming. My family and I have had countless memorable dinners here."</p>
+                </div>
+                <div>
+                    <p style="font-weight: bold;">Jane Smith</p>
+                    <p style="color: gray; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 0.8rem;">CUSTOMER</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div style="background-color: white; padding: 10px; border-radius: 8px; max-width: 100%; height: 60vh; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="Customer 2.jpg" alt="Customer 2" style=" width: 80px; height: 80px; border-radius: 50%; margin-top: 10px;">
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.9rem; padding-top: 20px;">I recently hosted a birthday party at Spice Garden, and it was a huge success. The catering service and the food quality were outstanding. I couldn't be happier with the experience!</p>
+                </div>
+                <div>
+                    <p style="font-weight: bold;">Maria Gracia</p>
+                    <p style="color: gray; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 0.8rem;">CUSTOMER</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div style="background-color: white; padding: 10px; border-radius: 8px; max-width: 100%; height: 60vh; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <img src="Customer 3.jpg" alt="Customer 3" style=" width: 80px; height: 80px; border-radius: 50%; margin-top: 10px;">
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.9rem; padding-top: 20px;">My wedding reception at Spice Garden was nothing short of magical. The venue, the menu, and the service exceeded our expectations. Our guests still rave about it!</p>
+                </div>
+                <div>
+                    <p style="font-weight: bold;">John Doe</p>
+                    <p style="color: gray; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 0.8rem;">CUSTOMER</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section-->
+<section style="padding: 50px 0; text-align: center;">
+
+    <div class="container">
+      <div class="row">
+        <!-- Google Map (Canada Location) -->
+        <div class="map-container" style="display: inline-block; width: 50%; vertical-align: top;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.160338432621!2d-79.38318468445772!3d43.65348127912181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6b9879eeb%3A0x4c9d5c7a75552ec1!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sin!4v1695658455680!5m2!1sen!2sin" 
+                  width="100%" height="340" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+          </iframe>
+        </div>
+
+        <!-- Contact Form and Button -->
+        <div class="form-container" style="display: inline-block; width: 48%; vertical-align: top; text-align: left;">
+          <h3 style="margin-bottom: 10px; font-family: Georgia, 'Times New Roman', Times, serif; color: #ff0000;text-align: center;">Contact Us</h3>
+          <form action="contact.php" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name" name="name" required style="margin-bottom: 10px; border-radius: 0;">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email" name="email" required style="margin-bottom: 10px; border-radius: 0;">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Subject" name="subject" required style="margin-bottom: 10px; border-radius: 0;">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Your Message" name="message" rows="4" required style="margin-bottom: 10px; border-radius: 0;"></textarea>
+            </div>
+
+            <!-- Send Message Button aligned inline with the map -->
+            <div style="text-align: right;">
+              <button type="submit" class="btn" style="background-color: gold; color:black; padding: 5px 10px; border: none;float: left;">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="row mt-5 text-center">
+        <div class="col-md-3">
+            <h4 style="font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: 1.5rem;">Contact Information</h4>
+          <h5 style="font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size: 0.9rem;">Address</h5>
+          <p style="margin-bottom: 0;color: gold;">Toronto, Ontario,<br> Canada M5H 2N2</p>
+        </div>
+        <div class="col-md-3">
+          <h5 style="font-weight: bold;font-family: Arial, Helvetica, sans-serif;font-size: 0.9rem;margin-top: 35px;">Phone</h5>
+          <p style="margin-bottom: 0;">
+            <a href="tel:+911234567890" style="text-decoration: none; color: gold;">+91 123-456-7890</a>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h5 style="font-weight: bold;font-family: Arial, Helvetica, sans-serif;font-size: 0.9rem;margin-top: 35px;">Email</h5>
+          <p style="margin-bottom: 0;">
+            <a href="mailto:info@spicegarden.com" style="text-decoration: none; color: gold;">info@spicegarden.com</a>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h5 style="font-weight: bold;font-family: Arial, Helvetica, sans-serif;font-size: 0.9rem;margin-top: 35px;">Website</h5>
+          <p style="margin-bottom: 0;">
+            <a href="#" style="text-decoration: none; color: gold;">spicegarden.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+<!-- Footer Section -->
+<footer style="background-color: #2f2f2f;" class="text-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="margin-left: 20px;">
+                <h5 style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">Spice Garden</h5>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; color: gray;">Discover the exquisite flavors of our cuisine. Spice Garden is your destination for culinary excellence.</p>
+                <p>
+                    <!-- Social Media Icons -->
+                    <a href="#" style="color: gray;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color: gray; margin-left: 20px;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: gray; margin-left: 20px;"><i class="fab fa-twitter"></i></a>
+                </p>
+            </div>
+            <div class="col-md-4" style="margin-left: 30px;">
+                <h5 style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">Open Hours</h5>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; color: gray;">Monday - Thursday: 9:00 AM - 12:00 AM<br>
+                    Friday - Saturday: 9:00 AM - 2:00 AM<br>
+                    Sunday: 9:00 AM - 2:00 AM</p>
+            </div>
+            <div class="col-md-4">
+                <h5 style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;padding-bottom: 10px;">Newsletter</h5>
+                <form>
+                    <div class="d-flex">
+                        <!-- Input field without rounded borders -->
+                        <input type="email" class="form-control" placeholder="Enter email address" style="border-radius: 0;">
+                        
+                        <!-- Subscribe button with gold color and no rounded borders -->
+                        <button type="submit" class="btn ml-2" style="background-color: gold; color: black; border-radius: 0;">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="text-center mt-4">
+            <p style="color: gray;">&copy; 2023 All Rights Reserved | Spice Garden</p>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+     <!-- Bootstrap 4 CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+     <!-- jQuery -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Order Page</title>
+</head>
+<style>
+    body {
+   font-family: sans-serif;
+   background-size: cover;
+   background-position: center;
+   height:auto;
+}
+
+   .form{
+       background-color: rgb(246, 237, 154);
+       padding-left:5px;
+       padding-right:5px;
+       padding-bottom:15px;
+       
+   }
+   .form-container{
+       padding-left:15%;
+       padding-right:15%;
+   }
+   .order-heading{
+   text-align: center;
+   align-content: center;
+   color:red;
+   font-family: 'Times New Roman', Times, serif;
+   }
+.input{
+       width:100%;
+   }
+   .address-input{
+       width:100%;
+       height: 10%;
+   }
+   
+.order-item-labels{
+   display:flex;
+   justify-content:space-between;
+}
+.order-item-labels label{
+   width:18%;
+   font-weight: bold;
+   text-align: center;
+   justify-content: center;
+}
+.order-item-inputs input{
+   width:18%;
+  
+   margin-right: 10px;
+
+}
+
+.order-item-inputs{
+  display:flex;
+  justify-content: space-between;
+}
+</style>
+    <header class="py-2" style="background-color: #333;">
+        <nav class="container d-flex justify-content-between align-items-center">
+            <!-- Logo and Text Aligned Closer -->
+            <div class="d-flex align-items-center">
+                <div style="width: 40px; height: 40px; overflow: hidden; border-radius: 50%; margin-left: 50px;">
+                    <img src="logo.png" alt="Spice Garden Logo" style="width: 100%; height: auto; object-fit: cover;">
+                </div>
+                <h1 class="logo" style="font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif; color: #ff0000; font-size: 1rem; margin-left: 10px;">Spice Garden</h1>
+            </div>
+            <ul class="nav" style="margin-left: 0;">
+                <li class="nav-item"><a href="#home" class="nav-link" style="color: gray; padding-right: 2px;">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link" style="color: gray; padding-right: 2px;">About</a></li>
+                <li class="nav-item"><a href="#menu" class="nav-link" style="color: gray; padding-right: 2px;">Menu</a></li>
+                <li class="nav-item"><a href="#stories" class="nav-link" style="color: gray; padding-right: 2px;">Stories</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" style="color: gray; padding-right: 5px;">Contact</a></li>
+                          <li class="nav-item">
+                    <a href="#reservation" class="btn" style="background-color: gold; color: black; padding: 6px 10px; border-radius: 20px;">Book a Table</a>
+                </li>
+            </ul>
+        </nav>
+</header>
+<body>
+              <!-- Bootstrap 4 JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div class="form-container">
+            <div class="form">
+            <div class="order-heading">
+            <h2><i>Order Details</i></h2>
+            </div>
+            <label for="id">OrderID</label><br>
+            <input class="input" type="number" id="id" name="order-id" required><br>
+            <div id="order-id-error" class="error"></div>
+
+            <label for="name">Customer Name</label><br>
+            <input class="input" type="text" id="name" name="name" required><br>
+            <div id="name-error" class="error"></div>
+
+            <label for="email">Email ID</label><br>
+            <input class="input" type="email" id="email" name="email" required><br>
+            <div id="email-error" class="error"></div>
+
+            <label for="contact-number">Contact Number:</label><br>
+            <input class="input" type="number" id="contact" name="contact" required><br>
+            <div id="contact-error" class="error"></div>
+
+            <label for="date">Order Date</label><br>
+            <input class="input" type="date" id="date" name="date" required><br>
+            <div id="date-error" class="error"></div>
+
+            <label for="address">Address</label><br>
+            <input class="address-input" type="text" id="address" name="address" required><br>
+            <div id="address-error" class="error"></div>
+
+            <label for="addOrder">Add Order</label>
+            <button class="addOrder">+</button><br>
+
+            <div class="order-item-labels">
+                <label for="category">Category Name</label>
+                <label for="item-name">Item Name</label>
+                <label for="price">Item Price ($)</label>
+                <label for="quantity">Item Quantity</label>
+                <label for="amount">Subtotal ($)</label>
+            </div>
+    
+            
+            <div id="order-item"></div>
+            <br>
+            <label for="total">Total Amount ($):</label>
+            <input type="number" id="total" name="total" readonly><br>
+            <br>
+            <button id="order-now" class="order-now" typr="button">Order Now</button>                    
+        </div>
+        </div>
+    </div>
+        <script src="/js/order.js"></script>
+        <footer style="background-color: #2f2f2f;" class="text-light py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" style="margin-left: 20px;">
+                        <h5 style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">Spice Garden</h5>
+                        <p style="font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; color: gray;">Discover the exquisite flavors of our cuisine. Spice Garden is your destination for culinary excellence.</p>
+                        <p>
+                            <!-- Social Media Icons -->
+                            <a href="#" style="color: gray;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" style="color: gray; margin-left: 20px;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color: gray; margin-left: 20px;"><i class="fab fa-twitter"></i></a>
+                        </p>
+                    </div>
+                    <div class="col-md-4" style="margin-left: 30px;">
+                        <h5 style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;">Open Hours</h5>
+                        <p style="font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; color: gray;">Monday - Thursday: 9:00 AM - 12:00 AM<br>
+                            Friday - Saturday: 9:00 AM - 2:00 AM<br>
+                            Sunday: 9:00 AM - 2:00 AM</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem;padding-bottom: 10px;">Newsletter</h5>
+                        <form>
+                            <div class="d-flex">
+                                <!-- Input field without rounded borders -->
+                                <input type="email" class="form-control" placeholder="Enter email address" style="border-radius: 0;">
+                                
+                                <!-- Subscribe button with gold color and no rounded borders -->
+                                <button type="submit" class="btn ml-2" style="background-color: gold; color: black; border-radius: 0;">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+                <div class="text-center mt-4">
+                    <p style="color: gray;">&copy; 2023 All Rights Reserved | Spice Garden</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
